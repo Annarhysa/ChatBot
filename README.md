@@ -1,2 +1,3 @@
-# YeBot
-Building a YeBot with OpenAI
+# ChatBot
+Building a Bot using machine learning
+
