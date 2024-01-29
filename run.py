@@ -62,3 +62,21 @@ intents = [
     }
 ]
 
+#creating the vectorizer and classifier model
+vectorizer = TfidfVectorizer()
+model = LogisticRegression(random_state=0, max_iter=10000)
+
+# now preprocessing the data, just segregating it in different lists for easy access
+tags = []
+patterns = []
+
+for intent in intents:
+    for pattern in intent['patterns']:
+        tags.append(intent['tag'])
+        patterns.append(pattern)
+
+#training the model on the segregated data
+x = vectorizer.fit_transform(patterns)
+y = tags
+model.fit(x,y)
+
