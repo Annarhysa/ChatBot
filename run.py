@@ -80,3 +80,13 @@ x = vectorizer.fit_transform(patterns)
 y = tags
 model.fit(x,y)
 
+#creating a fucntion for the chatbot
+def chatbot(input_text):
+    input_text = vectorizer.transform([input_text])
+    tag = model.predict(input_text)[0]
+    for intent in intents:
+        if intent['tag'] == tag:
+            response = random.choice(intent['responses'])
+            return response
+        
+
