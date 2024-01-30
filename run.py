@@ -88,5 +88,28 @@ def chatbot(input_text):
         if intent['tag'] == tag:
             response = random.choice(intent['responses'])
             return response
-        
 
+#creating the main which contains the UI made using streamlit
+counter = 0
+
+def main():
+    global counter
+    st.title("My Chatbot")
+    st.write("Welcome to the chatbot. Please type your query and press Enter to start a conversation with my bot.")
+
+
+    counter += 1
+    user_input = st.text_input("You: ", key = f"user_input_{counter}")
+
+    if user_input:
+        response = chatbot(user_input)
+        st.text_area("Bot: ", value = response, height = 100, max_chars = None, key = f"chatbot_response_{counter}")
+
+
+        if response.lower() in ['goodbye', 'bye']:
+            st.write("Thank you for chatting with me. Have a good day ahead!")
+            st.stop()
+
+
+if __name__ == '__main__':
+    main()
