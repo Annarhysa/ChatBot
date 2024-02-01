@@ -5,3 +5,6 @@ An end-to-end chatbot refers to a chatbot that can handle a complete conversatio
 
 Once deployed, users can interact with the chatbot by sending it multiple requests and the chatbot can handle the entire conversation itself. 
 
+The final chatbot looks as follows
+
+![chatbot website](images/image.png)
